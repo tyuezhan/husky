@@ -10,7 +10,8 @@ publish_voxel_map: true
 transform_tolerance: 0.5
 meter_scoring: true
 
-footprint: [[-0.21, -0.165], [-0.21, 0.165], [0.21, 0.165], [0.21, -0.165]]
+# footprint: [[-0.21, -0.165], [-0.21, 0.165], [0.21, 0.165], [0.21, -0.165]]
+footprint: [[-0.5, -0.5], [-0.50, 0.5], [0.5, 0.5], [0.5, -0.5]]
 footprint_padding: 0.02
 
 plugins:
@@ -24,7 +25,7 @@ plugins:
 
 obstacles_layer:
   observation_sources: os1_lidar
-  os1_lidar: {sensor_frame: husky/lidar_points, data_type: PointCloud2, topic: os1_cloud_node/points/origin_ground_filtered, marking: true, clearing: true, min_obstacle_height: -100.0, max_obstacle_height: 100.0, obstacle_range: 5.0, raytrace_range: 20.0, track_unknown_space: true}
+  os1_lidar: {sensor_frame: husky/lidar_points, data_type: PointCloud2, topic: husky/lidar_points, marking: true, clearing: true, min_obstacle_height: 1.4, max_obstacle_height: 100.0, obstacle_range: 5.0, raytrace_range: 20.0, track_unknown_space: true}
 
 inflater_layer:
   enabled: true

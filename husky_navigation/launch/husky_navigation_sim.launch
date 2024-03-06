@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-    <arg name="odom_frame_id" default="husky/odom" />
+    <arg name="odom_frame_id" default="world" />
     <arg name="base_frame_id" default="husky/base" />
-    <arg name="global_frame_id" default="husky/odom" />
-    <arg name="odom_topic" default="/husky/odometry/filtered" />
+    <arg name="global_frame_id" default="world" />
+    <arg name="odom_topic" default="/ground_truth/husky/odom" />
     <arg name="pointcloud_topic" default="/husky/lidar_points" />
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
@@ -27,7 +27,7 @@
         <remap from="odom" to="$(arg odom_topic)"/>
         <remap from="scan" to="$(arg pointcloud_topic)"/>
         <remap from="cmd_vel" to="/husky/twist_marker_server/cmd_vel"/>
-        <remap from="move_base_simple/goal" to="/move_base_simple/goal_not_use"/>
+        <!-- <remap from="move_base_simple/goal" to="/move_base_simple/goal_not_use"/> -->
     </node>
 
     <!-- <node name="transformer" pkg="tf" type="static_transform_publisher"
